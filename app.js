@@ -3,7 +3,7 @@ const esc = t => String(t).replace(/[&<>"']/g, c => "&#" + c.charCodeAt(0) + ";"
 let books = [];
 
 function render() {
-    const s = $("sort").value, yr = b => b.first_pulish_year || 0;
+    const s = $("sort").value, yr = b => b.first_publish_year || 0;
     const rows = books
       .filter(b => !$("cover").checked || b.cover_i)
       .sort((a, b) => s === "new" ? yr(b) - yr(a)

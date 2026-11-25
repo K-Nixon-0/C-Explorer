@@ -16,3 +16,12 @@ function render() {
         <span>Year: ${b.first_publish_year || "N/A"}</span></div>`).join("");
 }
 
+$("f").addEventListener("submit", e => {
+    e.preventDefault();
+    $("msg").textContent = "Loading.....";
+    fetch("https://openlibrary.org/search.json?limit=40&fields=title,author_name,first_publish_year,cover_i&q=" + encodeURIComponent($("q").value))
+      .then(r => { if (!r.ok) throw new Error("HTTP" + r.status); return r.json(); })
+      .then(d => { books = d.docs; render(); })
+      .catch(err => $("msg").textContent = "Could not load data: " + err.message);
+});
+["sort", "cover"].forEach(id => $(id).addEventListener("change", render));

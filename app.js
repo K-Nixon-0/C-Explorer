@@ -12,7 +12,7 @@ function render() {
     $("msg").textContent = rows.length + " books";
     $("list").innerHTML = rows.map(b => `<div class="card">
         ${b.cover_i ? `<img src="https://covers.openlibrary.org/b/id/${b.cover_i}-M.jpg" alt="cover">` : ""}
-        <b>${esc(b.title)}</b><span>$(esc((b.author_name || ["Unknown"])[0]))</span>
+        <b>${esc(b.title)}</b><span>${esc((b.author_name || ["Unknown"])[0])}</span>
         <span>Year: ${b.first_publish_year || "N/A"}</span></div>`).join("");
 }
 

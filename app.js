@@ -8,7 +8,7 @@ function render() {
       .filter(b => !$("cover").checked || b.cover_i)
       .sort((a, b) => s === "new" ? yr(b) - yr(a)
         : s === "old" ? (yr(a) || 9999) - (yr(b) || 9999)
-        : s === "title" ? a.title.locateCompare(b.title) : 0);
+        : s === "title" ? a.title.localeCompare(b.title) : 0);
     $("msg").textContent = rows.length + " books";
     $("list").innerHTML = rows.map(b => `<div class="card">
         ${b.cover_i ? `<img src="https://covers.openlibrary.org/b/id/${b.cover_i}-M.jpg" alt="cover">` : ""}

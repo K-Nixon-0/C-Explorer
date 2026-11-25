@@ -1,5 +1,5 @@
 const $ = id => document.getElementById(id);
-const esc = t => String(t).replace(/[&<>"'])/g, c => "&#" + c.charCodeAt(0) + ";");
+const esc = t => String(t).replace(/[&<>"']/g, c => "&#" + c.charCodeAt(0) + ";");
 let books = [];
 
 function render() {

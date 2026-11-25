@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Book Explorer (Finder)</title>
     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Book Finder</h1>
+    <form id="f">
+        <input id="q" placeholder="Search books (Write any)" reqired>
+        <button>Search</button>
+        <select id="sort">
+            <option value="">Sort</option>
+            <option value="new">Newest first</option>
+            <option value="old">Oldest first</option>
+            <option value="title">A - Z</option>
+        </select>
+        <label><input type="checkbox" id="cover">With cover only</label>
+    </form>
+    <p id="msg">Type something and press <b>Search</b></p>
+    <div id="list"></div>
+</body>
 </html>
